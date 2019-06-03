@@ -1,0 +1,21 @@
+{
+  "name": "proyectoviajes",
+  "description": "",
+  "main": "app.js",
+  "authors": [
+    "“Steven” <steven160894@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/stevenscalzo/ProyectoViajes",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^4.3.1"
+  }
+}

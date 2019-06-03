@@ -3,13 +3,27 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var flash = require('connect-flash');
+var session = require('express-session');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var travelsRouter = require('./routes/travels'); 
+//var travelsApiRouter = require('./routes/api/travelsApi'); 
 
 var app = express();
 
+app.use(session({
+  secret: 'miClaveSecreta',
+  name: 'sesionUsuario',
+  resave: true,
+  saveUninitialized: true,
+}));
+app.use(flash());
+
 // view engine setup
+app.listen(3000,()=>console.log('Servidor levantado en 3000'));
+app.use('/components', express.static(`${__dirname}/public/components`));
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
@@ -21,6 +35,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/destinos', travelsRouter); 
+//app.use('/api/films', travelsApiRouter); 
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
