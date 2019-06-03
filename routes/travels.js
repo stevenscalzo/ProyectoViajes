@@ -1,5 +1,4 @@
 const express = require('express');
-const CONN = require('../connection/mysqlconnection');
 const travelsController = require('../models/modelosViajes');
 
 const router = express.Router();
