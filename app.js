@@ -9,6 +9,8 @@ var session = require('express-session');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var travelsRouter = require('./routes/travels'); 
+var apiTravel = require('./routes/api/travels');
+//var apiUser = require('./routes/api/users');
 //var travelsApiRouter = require('./routes/api/travelsApi'); 
 
 var app = express();
@@ -22,7 +24,11 @@ app.use(session({
 app.use(flash());
 
 // view engine setup
-app.listen(3000,()=>console.log('Servidor levantado en 3000'));
+app.use((req, res, next) => {
+  res.locals.user = req.session;
+  next();
+})
+
 app.use('/components', express.static(`${__dirname}/public/components`));
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
@@ -36,6 +42,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/destinos', travelsRouter); 
+app.use('/api/travel', apiTravel);
+//app.use('/api/user', apiUser);
+
 //app.use('/api/films', travelsApiRouter); 
 
 

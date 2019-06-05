@@ -1,15 +1,9 @@
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="http://localhost:3000/destinos">Home</a></li>
-
-        {{#if user}}
-        <li class="breadcrumb-item"><a href="http://localhost:3000/users/add">Añadir destinos</a></li>
-
-        {{else}}
         <li class="breadcrumb-item"><a href="http://localhost:3000/users/register">Registro</a></li>
         <li class="breadcrumb-item"><a href="http://localhost:3000/users/login">Login</a></li>
-        {{/if}}
-
+      
     </ol>
 </nav>
 
@@ -17,14 +11,14 @@
 
 <div class="container">
     <div class="row">
-        {{#each Viajes}}
+        {{#each travels}}
         <div class="col-3">
 
             <div class="card">
-                <img src="{{Imagen}}" class="card-img-top" height="150px">
+                <img src="{{imagen}}" class="card-img-top" height="150px">
                 <div class="card-body">
-                    <h5 class="card-title">{{Destino}}</h5>
-                    <p class="card-text">Precio: {{Precio}}</p>
+                    <h5 class="card-title">{{destino}}</h5>
+                    <p class="card-text">Precio: {{precio}} €</p>
                     <a href="#" class="btn btn-primary">Comprar</a>
                 </div>
             </div>

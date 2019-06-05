@@ -1,12 +1,17 @@
 var express = require('express');
 var router = express.Router();
-var usersController = require('../models/users');
+var usersController = require('../controllers/users');
 
 
 router.get('/', function(req, res, next) {
   res.send('respond with a resource');
 });
 
+
+router.get('/logOut', async (req, res) => {
+  req.session.destroy();
+  res.redirect('/destinos')
+});
 
 router.post('/login', async (req, res) => {
   let email = req.body.email;
@@ -23,6 +28,8 @@ router.post('/login', async (req, res) => {
       req.session.name = user.name;
       req.session.userId = user.id;
       req.session.admin = user.admin;
+
+      
       let admin = user.admin;
       req.session.logginDate = new Date();
       console.log(admin + ' admin');

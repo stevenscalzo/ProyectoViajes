@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon"
+    "start": "nodemon bin/www -e js,hbs,html"
   },
   "dependencies": {
     "bcrypt": "^3.0.6",
@@ -16,7 +16,8 @@
     "http-errors": "~1.6.3",
     "morgan": "~1.9.1",
     "mysql": "^2.17.1",
-    "mysql2": "^1.6.5"
+    "mysql2": "^1.6.5",
+    "sequelize": "^5.8.7"
   },
   "main": "app.js",
   "author": "",

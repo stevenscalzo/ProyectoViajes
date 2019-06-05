@@ -1,32 +1,31 @@
 const express = require('express');
-const travelsController = require('../models/modelosViajes');
-
+const travelsController = require('../controllers/travels');
 const router = express.Router();
 
 // Listado de viajes
 router.get('/', async (req, res) => {
-    let Viajes = await travelsController.getTravel();
+    let travels = await travelsController.getTravel();
 
     res.render('travels/travels', {
-        Viajes
+        travels
     });
 });
 
 // Listado de viajes con login
 router.get('/login', async (req, res) => {
-    let Viajes = await travelsController.getTravel();
+    let travels = await travelsController.getTravel();
 
     res.render('travels/travelsLogin', {
-        Viajes
+        travels
     });
 });
 
 // Listado de viajes como Admin
 router.get('/admin', async (req, res) => {
-    let Viajes = await travelsController.getTravel();
+    let travels = await travelsController.getTravel();
 
     res.render('travels/travelsAdmin', {
-        Viajes
+        travels
     });
 });
 
