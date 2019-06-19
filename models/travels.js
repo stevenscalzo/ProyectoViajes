@@ -7,8 +7,12 @@ module.exports = (sequelize, DataTypes) => {
         descuento: DataTypes.INTEGER,
         fecha_inicio: DataTypes.DATE,
         fecha_fin: DataTypes.DATE,
-        imagen: DataTypes.STRING
+        imagen: DataTypes.STRING,
+        
     })
+    travel.associate = function(models){
+        models.travel.belongsTo(models.user);
+    }
 
     return travel;
 }

@@ -2,15 +2,17 @@ let models = require('../models');
 
 // Lista de viajes
 
-function getTravel()
-{
-    console.log(models.travels + ' models');
-    return models.travel.findAll();
+function getTravel() {
+   
+    return models.travel.findAll({
+        include: [{
+            model: models.user
+        }]
+    });
 }
 // Controlador que añade una ciudad y la devuelve
 
-function addTravel(travel)
-{
+function addTravel(travel) {
     return models.travel.create(travel);
 }
 

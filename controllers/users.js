@@ -10,7 +10,7 @@ async function checkLogin(email, password) {
     if (user.length === 0) {
         return null
     } else {
-// Comparar contraseñas
+        // Comparar contraseñas
         let match = await bcrypt.compare(password, user[0].password);
         return match ? user[0] : null;
     }
@@ -18,19 +18,35 @@ async function checkLogin(email, password) {
 }
 // Registra un nuevo usuario en la bbdd
 async function register(email, password, name) {
+    if (email != "" & password != "" & name != "") {
 
-    let hash = await bcrypt.hash(password, SALT_ROUNDS);
-    let user = {
-        password: hash,
-        email,
-        name,
-    }
-    return models.user.create(user);
+        let buscarUsuario = await models.user.findAll({ where: { email: email } });
+        console.log("Busqueda de usuario: ", buscarUsuario.length);
+        if (buscarUsuario.length === 0)
+        {
+            let hash = await bcrypt.hash(password, SALT_ROUNDS);
+            let user = {
+                password: hash,
+                email,
+                name
+            }
+            return models.user.create(user);
+        }
+    } 
 }
 
-  
+// buscar correo
+async function userId(email) {
+    let usuarioId = models.user.findAll({ where: { email: email } })
+    return usuarioId
+}
+
+
+
+
 
 module.exports = {
     checkLogin,
-    register
+    register,
+    userId
 }
