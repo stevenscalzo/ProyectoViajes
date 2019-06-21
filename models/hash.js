@@ -2,7 +2,6 @@
 
 module.exports = (sequelize, DataTypes) => {
     var hash = sequelize.define('hash', {
-
         code: DataTypes.STRING,
     }
     )

@@ -40,9 +40,9 @@ router.post('/login', async (req, res) => {
       let admin = user.admin;
       req.session.logginDate = new Date();
       console.log(admin + ' admin');
-      if(active == 0){
+      if (active == 0) {
         res.redirect('/users/login/desactive');
-      }else if (admin == 1) {
+      } else if (admin == 1) {
         res.redirect('/destinos/admin');
       } else {
         res.redirect('/destinos/login');
@@ -72,7 +72,7 @@ router.get('/login', (req, res) => {
 
 router.get('/login/desactive', (req, res) => {
   res.render('user/desactive');
-  
+
 })
 
 router.get('/login/:code', async (req, res) => {
@@ -98,13 +98,13 @@ router.get('/register', (req, res) => {
 });
 
 router.post('/register', async (req, res) => {
-  let { email, name, password} = req.body;
+  let { email, name, password } = req.body;
   console.log('email: ' + email);
   let isRegistered = await usersController.register(email, password, name);
 
 
   // registrado
-  
+
   if (isRegistered) {
     let chars = "0123456789abcdefABCDEF";
     let lon = 20;

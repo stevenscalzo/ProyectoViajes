@@ -36,6 +36,7 @@ app.use((req, res, next) => {
   res.locals.user = req.session;
   next();
 })
+app.use('/imagen', express.static('uploads'));
 
 app.use('/components', express.static(`${__dirname}/public/components`));
 app.set('views', path.join(__dirname, 'views'));

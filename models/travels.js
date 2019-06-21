@@ -6,12 +6,11 @@ module.exports = (sequelize, DataTypes) => {
         precio: DataTypes.FLOAT,
         descuento: DataTypes.INTEGER,
         fecha_inicio: DataTypes.DATE,
-        fecha_fin: DataTypes.DATE,
-        imagen: DataTypes.STRING,
-        
+        fecha_fin: DataTypes.DATE
     })
     travel.associate = function(models){
-        models.travel.belongsTo(models.user);
+      models.travel.belongsTo(models.user)
+      models.travel.hasMany(models.travelImages)
     }
 
     return travel;

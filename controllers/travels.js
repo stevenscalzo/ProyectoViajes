@@ -2,24 +2,40 @@ let models = require('../models');
 
 // Lista de viajes
 
-function getTravel() {
-   
+function getTravels() {
+
     return models.travel.findAll({
-        include: [{
-            model: models.user
-        }]
-    });
+        include: [
+            models.user,
+            models.travelImages
+        ]});
 }
 // Controlador que añade una ciudad y la devuelve
 
-function addTravel(travel) {
-    return models.travel.create(travel);
+function addTravel(travel, userI) {
+    console.log("travel: ", travel);
+    console.log(userI);
+    let addedTravel = models.travel.create(travel);
+    models.travel.update({
+        userId: userI
+    }, {
+            where: {
+                destino: travel.destino
+            }
+        })
+    return addedTravel
+}
+
+function travelId(destino) {
+    console.log("destino");
+    return models.travel.findAll({ where: { destino } })
 }
 
 
 module.exports = {
-    getTravel,
-    addTravel
+    getTravels,
+    addTravel,
+    travelId
 }
 
 

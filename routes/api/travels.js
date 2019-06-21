@@ -4,7 +4,7 @@ const router = express.Router();
 
 
 router.get('/', async (req, res) => {
-    let travels = await travelsController.getTravel();
+    let travels = await travelsController.getTravels();
     res.send(travels);
 });
 

@@ -22,8 +22,7 @@ async function register(email, password, name) {
 
         let buscarUsuario = await models.user.findAll({ where: { email: email } });
         console.log("Busqueda de usuario: ", buscarUsuario.length);
-        if (buscarUsuario.length === 0)
-        {
+        if (buscarUsuario.length === 0) {
             let hash = await bcrypt.hash(password, SALT_ROUNDS);
             let user = {
                 password: hash,
@@ -32,7 +31,7 @@ async function register(email, password, name) {
             }
             return models.user.create(user);
         }
-    } 
+    }
 }
 
 // buscar correo
