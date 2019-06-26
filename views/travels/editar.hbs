@@ -1,0 +1,61 @@
+<form action="/destinos/{{travel.id}}/editado" method="post" enctype="multipart/form-data">
+    <div class="form-group row">
+        <label for="inputEmail3" class="col-sm-2 col-form-label">Destino anterior: {{travel.destino}} </label>
+        <div class="col-sm-10">
+            <input type="text" name="destino" placeholder="Nuevo destino">
+
+        </div>
+
+    </div>
+    <div class="form-group row">
+        <label for="inputEmail3" class="col-sm-2 col-form-label">Precio anterior: {{travel.precio}} </label>
+        <div class="col-sm-10">
+            <input type="text" name="precio" placeholder="Nuevo precio €">
+
+        </div>
+
+    </div>
+    <div class="form-group row">
+        <label for="inputEmail3" class="col-sm-2 col-form-label">Fecha de inicio anterior: {{inicio}} </label>
+        <div class="col-sm-10">
+            <input type="date" name="fecha_inicio" placeholder="">
+
+        </div>
+
+    </div>
+    <div class="form-group row">
+        <label for="inputEmail3" class="col-sm-2 col-form-label">Fecha de fin anterior: {{fin}} </label>
+        <div class="col-sm-10">
+            <input type="date" name="fecha_fin" placeholder="">
+
+        </div>
+
+    </div>
+    <div class="form-group row">
+        <label for="inputEmail3" class="col-sm-2 col-form-label">Añadir imagen:</label>
+        <div class="col-sm-10">
+            <input type="file" class="btn btn-primary" name="imagen" multiple>
+
+        </div>
+
+    </div>
+    <div class="form-group row">
+        <div class="col-sm-10">
+
+            <input type="submit" class="btn btn-primary" value="Editar Viaje">
+        </div>
+
+    </div>
+</form>
+
+
+<form action="/destinos/{{travel.id}}/travelimagen" method="post" enctype="multipart/form-data">
+    <label>Editar Imagen del viaje</label>
+    <input type="submit" value="Editar">
+</form>
+
+
+<form action="/destinos/{{travel.id}}/destruir" method="post" enctype="multipart/form-data">
+    <label>Eliminar viaje</label>
+    <input type="submit" onclick="let opcion = confirm('¿Confirma eliminar el viaje?')" value="Eliminar Viaje">
+</form>

@@ -9,7 +9,6 @@ router.get('/', async (req, res) => {
 });
 
 
-
 router.post('/', async (req, res) => {
     let result = await travelsController.addTravel(req.body);
     res.send(result);

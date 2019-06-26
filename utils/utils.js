@@ -5,9 +5,7 @@ const Path = require('path');
 
 
 function sendEmail(datos, code) {
-  console.log('correo enviado');
-  console.log(datos);
-  const handlebarOptions = {
+   const handlebarOptions = {
     viewEngine: {
       extName: '.hbs',
       partialsDir: 'views/email-templates/partials',
@@ -22,14 +20,9 @@ function sendEmail(datos, code) {
 
   let message = {
     to: datos,
-    subject: 'Email de prueba',
-    template: 'email',
+    subject: 'Validacion de cuenta',
+    template: 'Validacion de cuenta',
     html: `Para validar su cuenta es necesario que de click en el siguiente enlace: http://localhost:3000/users/login/${code}`,
-
-
-
-
-
   }
 
   Email.transporter.sendMail(message, (error, info) => {

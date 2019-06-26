@@ -1,8 +1,8 @@
 function isAdmind(req, res, next){
-    if(req.session.admin == 1){
+    if(req.session.admin){
         next();
     }else{
-        res.status(403).send('NO tienes permisos')
+        res.render('user/noPermitido');
     }
 }
 

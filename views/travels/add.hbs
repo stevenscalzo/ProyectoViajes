@@ -1,18 +1,10 @@
-<nav aria-label="breadcrumb">
-    <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="http://localhost:3000/destinos">Home</a></li>
-
-    </ol>
-</nav>
-
-
-
 <form action="/destinos" method="post" enctype="multipart/form-data">
     <input type="text" name="destino" placeholder="Ciudad">
     <input type="text" name="precio" placeholder="Precio">
-    <input type="text" name="fecha_inicio" placeholder="Fecha inicio">
-    <input type="text" name="fecha_fin" placeholder="fecha fin">
-    <input type="file" name="imagen" placeholder="imagen" multiple>
+    <input type="date" name="fecha_inicio" placeholder="Fecha inicio">
+    <input type="date" name="fecha_fin" placeholder="fecha fin">
+    <label>Añadir imagen:</label>
+    <input type="file" name="imagen"  multiple>
 
     <input type="submit" value="Enviar viaje">
 </form>

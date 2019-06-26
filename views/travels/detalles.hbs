@@ -1,0 +1,29 @@
+{{#if user.admin}}
+<a href="http://localhost:3000/destinos/{{travel.id}}/editar">Editar</a>
+{{/if}}
+<div class="container">
+    <div class="row">
+        <div class="col-3">
+            <div class="card-body">
+                <h5 class="card-title">{{travel.destino}}</h5>
+                <p class="card-text">Precio: {{travel.precio}} €</p>
+                <p>Fecha de Partida:{{inicio}}</p>
+                <p>Fecha de Regreso:{{fin}}</p>
+                <p>Creado por:{{travel.user.name}}</p>
+                <a href="#" class="btn btn-primary">Comprar</a>
+
+            </div>
+            {{#each travel.travelImages}}
+            
+                <div class="card">
+                    {{#if profile}}
+                    <img src="/imagen/{{path}}" class="card-img-top" height="150px">
+                    {{else}}
+                    <img src="/imagen/{{path}}" class="card-img-top" height="150px">
+                    {{/if}}
+                    {{/each}}
+                
+            </div>
+        </div>
+    </div>
+</div>

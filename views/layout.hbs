@@ -11,10 +11,27 @@
 <body>
   <header>
     <h5>{{user.name}}</h6>
+    <nav >
+</nav>
+
 
   </header>
   <div>
     <h1>Viajes </h1>
+    <ol >
+        <li ><a href="http://localhost:3000/destinos">Travels</a></li>
+        {{#if user.admin}}
+        <li ><a href="http://localhost:3000/destinos/add">Añadir destinos</a></li>
+        <li ><a href="http://localhost:3000/users/list">Lista de Usuarios</a></li>
+        {{/if}}
+        {{#if user.name}}
+        <li ><a href="http://localhost:3000/users/logOut">logOut</a></li>
+        {{else}}
+        <li ><a href="http://localhost:3000/users/register">Registro</a></li>
+        <li ><a href="http://localhost:3000/users/login">Login</a></li>
+        {{/if}}
+
+    </ol>
   </div>
   {{{body}}}
 
